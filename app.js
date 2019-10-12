@@ -10,9 +10,15 @@ var startQuestion = 0;
 //questions time choices submit start initials
 //TIMER
 
-var startBtn = document.querySelector("#startBtn");
-var timeElement = document.querySelector(".timerElement");
+var startBtn = document.querySelector('#startBtn');
+var timeElement = document.querySelector('.timerElement');
 var secondsLeft = 75;
+
+function startScreen() {
+  var startScreenElement = document.getElementById('startScreen');
+  startScreenElement.setAttribute("class", "hide");
+  questionDiv.removeAttribute("class");
+};
 
 startBtn.addEventListener("click", function() {
     setTime();
@@ -32,7 +38,7 @@ function setTime() {
 }
 
 function sendMessage() {
-  timeElement.textContent = "Please enter your high score:";
+  timeElement.textContent = "Please enter your initials:";
 
   var input = document.createElement('input'); 
 input.type = "text"; 
@@ -44,9 +50,6 @@ container.appendChild(input);
 
  //array of questions (question is string, choices are array, answer is string, key is number (to id into local storage)) (for loop through choices, chekc pbject for answer, if matches mark as correct)
     //score
-function questionClick(){
-
-}
 
   /* helpers */
 /* takes in index, uses that index to find question in db to return the title */
@@ -58,6 +61,7 @@ function renderChoices(index) {
     choicesDiv.innerHTML = '';
     for(i = 0; i < questions[index].choices.length; i++) {
         var choiceBtn = document.createElement('button');
+        choiceBtn.className = 'btn btn-primary';
         choiceBtn.textContent = questions[index].choices[i];
         choicesDiv.appendChild(choiceBtn);
     };
