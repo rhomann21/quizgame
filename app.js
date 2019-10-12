@@ -7,12 +7,11 @@ var choicesDiv = document.getElementById('choices');
 var questionBtn = document.getElementById('questionBtn');
 var startQuestion = 0; 
 
-var userName = document.querySelector("#user-name");
 //questions time choices submit start initials
 //TIMER
 
 var startBtn = document.querySelector("#startBtn");
-var timeElement = document.querySelector(".timer");
+var timeElement = document.querySelector(".timerElement");
 var secondsLeft = 75;
 
 startBtn.addEventListener("click", function() {
