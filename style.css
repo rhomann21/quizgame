@@ -5,3 +5,11 @@
     border: solid 1px black;
 
 }
+
+.startQuiz {
+    display: inline-block;
+}
+
+.wrapper {
+    text-align: center;
+}

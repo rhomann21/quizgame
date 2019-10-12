@@ -16,11 +16,11 @@ var secondsLeft = 75;
 
 function startScreen() {
   var startScreenElement = document.getElementById('startScreen');
-  startScreenElement.setAttribute("class", "hide");
-  questionDiv.removeAttribute("class");
+  startScreenElement.setAttribute('class', 'hide');
+  questionDiv.removeAttribute('class');
 };
 
-startBtn.addEventListener("click", function() {
+startBtn.addEventListener('click', function() {
     setTime();
 });
 
