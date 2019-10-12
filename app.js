@@ -15,9 +15,7 @@ var timeElement = document.querySelector('.timerElement');
 var secondsLeft = 75;
 
 function startScreen() {
-  var startScreenElement = document.getElementById('startScreen');
-  startScreenElement.setAttribute('class', 'hide');
-  questionDiv.removeAttribute('class');
+  document.getElementById("startScreen").style.display = "none";
 };
 
 startBtn.addEventListener('click', function() {

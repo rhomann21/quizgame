@@ -3,13 +3,16 @@
     color: white;
     border-radius: 10px;
     border: solid 1px black;
-
 }
 
 .startQuiz {
     display: inline-block;
 }
 
-.wrapper {
+.quizBlock {
+    text-align: center;
+}
+
+.wrapper1 {
     text-align: center;
 }
