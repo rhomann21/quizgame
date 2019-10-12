@@ -1,9 +1,53 @@
 /*variables*/
+var currentQuestionIndex = 0;
+var time = questions.length * 15;
+
 var questionDiv = document.getElementById('question');
 var choicesDiv = document.getElementById('choices');
 var questionBtn = document.getElementById('questionBtn');
-var startQuestion = 0;  //array of questions (question is string, choices are array, answer is string, key is number (to id into local storage)) (for loop through choices, chekc pbject for answer, if matches mark as correct)
+var startQuestion = 0; 
+
+var userName = document.querySelector("#user-name");
+//questions time choices submit start initials
+//TIMER
+
+var startBtn = document.querySelector("#startBtn");
+var timeElement = document.querySelector(".timer");
+var secondsLeft = 75;
+
+startBtn.addEventListener("click", function() {
+    setTime();
+});
+
+function setTime() {
+    var timerInterval = setInterval(function() {
+    secondsLeft--;
+    timeElement.textContent = secondsLeft;
+
+    if(secondsLeft === 0) {
+      clearInterval(timerInterval);
+      sendMessage();
+    }
+
+  }, 1000);
+}
+
+function sendMessage() {
+  timeElement.textContent = "Please enter your high score:";
+
+  var input = document.createElement('input'); 
+input.type = "text"; 
+//...    
+container.appendChild(input); 
+
+}
+
+
+ //array of questions (question is string, choices are array, answer is string, key is number (to id into local storage)) (for loop through choices, chekc pbject for answer, if matches mark as correct)
     //score
+function questionClick(){
+
+}
 
   /* helpers */
 /* takes in index, uses that index to find question in db to return the title */
@@ -32,6 +76,3 @@ questionBtn.addEventListener('click', function() {
 /* init */
 questionDiv.innerHTML = renderQuestion(startQuestion);
 renderChoices(0);
-
-//set interval to 15 seconds if click is wrong
-//
