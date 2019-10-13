@@ -5,6 +5,10 @@
     border: solid 1px black;
 }
 
+.scores {
+    text-align: center;
+}
+
 .startQuiz {
     display: inline-block;
 }
@@ -13,6 +17,6 @@
     text-align: center;
 }
 
-.wrapper1 {
+.wrapper {
     text-align: center;
 }

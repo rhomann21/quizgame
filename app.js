@@ -6,6 +6,8 @@ var questionDiv = document.getElementById('question');
 var choicesDiv = document.getElementById('choices');
 var questionBtn = document.getElementById('questionBtn');
 var quizBlock = document.getElementById('quizQuestions');
+var quizDiv = document.getElementById('textWrapper');
+var scoreDiv = document.getElementById('highScores');
 
 //questions time choices submit start initials
 //TIMER
@@ -16,6 +18,7 @@ var secondsLeft = 75;
 var timerInterval;
 
 quizQuestions.style.display = "none";
+highScores.style.display = "none";
 
 startBtn.onclick = function() { 
   quizQuestions.style.display = "block";
@@ -33,8 +36,7 @@ function setTime() {
     if(secondsLeft <= 0) {
       clearInterval(timerInterval);
       secondsLeft = 0; // "-5" wouldn't make sense to show
-     // sendMessage();
-    }
+     }
 
     timeElement.textContent = secondsLeft;
 
@@ -77,6 +79,7 @@ function checkAnswer(event) {
   console.log(buttonEl.questionIndex);
   console.log(buttonEl.textContent === questions[buttonEl.questionIndex].answer);
 
+  //Can I use else if
   if(buttonEl.textContent === questions[buttonEl.questionIndex].answer) {
     if(currentQuestionIndex < questions.length - 1) {
       currentQuestionIndex++;
@@ -86,6 +89,10 @@ function checkAnswer(event) {
       var finalScore = secondsLeft;
       clearInterval(timerInterval);
       console.log('finalScore is:', secondsLeft);
+      quizDiv.style.display = "none";
+      highScores.style.display = "block";
+
+
     }
   } else {
     secondsLeft -= 15;

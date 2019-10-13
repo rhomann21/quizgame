@@ -12,15 +12,14 @@
 
 <body>
     <!-- question -->
-    <div class="scores">View High Scores</div>
+    <div class="viewScores">View High Scores</div>
     <div class="timerElement">Time: <span id="time">0</span></div>
-  <div class="wrapper1">      
+  <div class="wrapper" id="textWrapper">      
     <div class="startQuiz" id="startScreen">
         <h1>Coding Quiz Challenge!</h1>
         <p>Try to answer the following code related questions within the time limit. </p>
         <p>Keep in mind that incorrect answers will penalize your score/time by 15 seconds!</p>
         <button class="btn btn-primary" id="startBtn">Start Quiz!</button>
-    </div>
  
   </div> 
   <div class="quizBlock" id="quizQuestions"> 
@@ -28,7 +27,13 @@
 
    <!-- choices -->
    <div id="choices">replace with choices</div>
+  </div>
+  </div>
 
+  <div class="scores" id="highScores">
+     <input type="text" name="initials" id="userInitials" placeholder="Enter your initials here" />
+      <button class="btn btn-primary" id="submitBtn">Submit</button>
+    </div>
 </body>
 
 <!-- db -->
