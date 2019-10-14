@@ -1,31 +1,53 @@
+.btn {
+  display: block;
+  margin: 5px 0;
+}
+
 .choiceBtnClass {
     background-color: purple;
     color: white;
     border-radius: 10px;
     border: solid 1px black;
-}
-
+  }
+  
 .highScoreWrapper {
     text-align: center;
     margin-top: 25px;
-}
-
+  }
+  
 .scores {
     text-align: center;
-}
-
+  }
+  
 .scoreBtns {
     text-align: center;
-}
-
+    text-decoration: none;
+  }
+  
 .startQuiz {
     display: inline-block;
-}
-
+  }
+  
 .quizBlock {
     text-align: center;
-}
-
+  }
+  
 .wrapper {
     text-align: center;
-}
+  }
+
+  
+.scoreItem {
+    text-align: left;
+  }
+  
+@media (max-width: 768px) {
+    #answers {
+      margin-top: 10px;
+    }
+  
+    .quiz-answer-btn {
+      display: block !important;
+      margin: 5px auto;
+    }
+  }

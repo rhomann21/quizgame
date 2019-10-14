@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type ="text/css" href="./normalize.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="./normalize.css" />
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
     <title>High Scores</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="highScoreWrapper">
-        <h1>High Scores!</h1>
+      <h1>High Scores!</h1>
+      <ol id="scores"></ol>
     </div>
     <div class="scoreBtns">
-        <button class="btn btn-primary" id="backBtn">Go back</button>
-        <button class="btn btn-primary" id="homeBtn">Clear scores</button>
+      <button class="btn btn-primary" id="backBtn">Go back</a></button>
+      <button class="btn btn-primary" id="clearScoresBtn">Clear scores</button>
     </div>
-</body>
+  </body>
 
-<script src="scores.js">
-</script>
+  <script src="scores.js"></script>
 </html>

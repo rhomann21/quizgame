@@ -1,126 +1,112 @@
 /*variables*/
+var choicesDiv = document.getElementById("choices");
 var currentQuestionIndex = 0;
-var time = questions.length * 15;
-
-var questionDiv = document.getElementById('question');
-var choicesDiv = document.getElementById('choices');
-var questionBtn = document.getElementById('questionBtn');
-var quizBlock = document.getElementById('quizQuestions');
-var quizDiv = document.getElementById('textWrapper');
-var scoreDiv = document.getElementById('highScores');
-var submitBtn = document.getElementById('submitBtn');
-var user = document.getElementById("userInitials").value;
-
-
-//questions time choices submit start initials
-//TIMER
-
-var startBtn = document.querySelector('#startBtn');
-var timeElement = document.querySelector('#time');
+var questionBtn = document.getElementById("questionBtn");
+var quizBlock = document.getElementById("quizQuestions");
+var questionDiv = document.getElementById("question");
+var quizDiv = document.getElementById("textWrapper");
+var scoreDiv = document.getElementById("highScores");
 var secondsLeft = 75;
+var startBtn = document.querySelector("#startBtn");
+var submitBtn = document.getElementById("submitBtn");
+var time = questions.length * 15;
+var timeElement = document.querySelector("#time");
 var timerInterval;
 
+//hide quiz questions
 quizQuestions.style.display = "none";
 highScores.style.display = "none";
 
-startBtn.onclick = function() { 
+//hide start screen and display questions
+startBtn.onclick = function() {
   quizQuestions.style.display = "block";
-  startBtn.style.display = "none"; 
-} 
+  startBtn.style.display = "none";
+};
 
-startBtn.addEventListener('click', function() {
-    setTime();
+//set timer and timer properties
+startBtn.addEventListener("click", function() {
+  setTime();
 });
 
 function setTime() {
   timerInterval = setInterval(function() {
     secondsLeft--;
 
-    if(secondsLeft <= 0) {
+    if (secondsLeft <= 0) {
       clearInterval(timerInterval);
       secondsLeft = 0; // "-5" wouldn't make sense to show
-     }
+    }
 
     timeElement.textContent = secondsLeft;
-
   }, 1000);
-};
+}
 
-/*function sendMessage() {
-  timeElement.textContent = "Please enter your initials:";
-
-  var input = document.createElement('input'); 
-    input.type = "text"; 
-    container.appendChild(input); 
-
-};*/
-
-startBtn.addEventListener('click', function() {
-  /* call render question */
+//call render question
+startBtn.addEventListener("click", function() {
   questionDiv.innerHTML = renderQuestion(currentQuestionIndex);
   renderChoices(currentQuestionIndex);
-    
 });
 
-  /* helpers */
-/* takes in index, uses that index to find question in db to return the title */
 questionDiv.innerHTML = renderQuestion(currentQuestionIndex);
 renderChoices(currentQuestionIndex);
 
 function renderQuestion(index) {
-    return questions[index].title;
-};
+  return questions[index].title;
+}
 
 function renderNextQuestion(questionIndex) {
   questionDiv.innerHTML = renderQuestion(questionIndex);
   renderChoices(questionIndex);
 }
 
+//check answer
 function checkAnswer(event) {
   var buttonEl = event.target;
-  console.log(buttonEl.textContent);
-  console.log(buttonEl.questionIndex);
-  console.log(buttonEl.textContent === questions[buttonEl.questionIndex].answer);
 
-  //Can I use else if
-  if(buttonEl.textContent === questions[buttonEl.questionIndex].answer) {
-    if(currentQuestionIndex < questions.length - 1) {
+  if (buttonEl.textContent === questions[buttonEl.questionIndex].answer) {
+    if (currentQuestionIndex < questions.length - 1) {
       currentQuestionIndex++;
       renderNextQuestion(currentQuestionIndex);
     } else {
       // end quiz
       clearInterval(timerInterval);
-      var finalScore;
-      console.log('finalScore is:', secondsLeft);
       quizDiv.style.display = "none";
       highScores.style.display = "block";
-      document.querySelector('#final-score').innerText = secondsLeft;
-      
+      document.querySelector("#final-score").innerText = secondsLeft;
     }
   } else {
     secondsLeft -= 15;
-    
   }
 }
 
-
-/* takes in index, uses this index to return the choices from the db */
+//takes in index, uses this index to return the choices from the db
 function renderChoices(index) {
-    choicesDiv.innerHTML = '';
-    for(i = 0; i < questions[index].choices.length; i++) {
-        var choiceBtn = document.createElement('button');
-        choiceBtn.className = 'btn btn-primary';
-        choiceBtn.textContent = questions[index].choices[i];
-        choiceBtn.questionIndex = index;
-        choiceBtn.onclick = checkAnswer;
-        choicesDiv.appendChild(choiceBtn);
+  choicesDiv.innerHTML = "";
+  for (i = 0; i < questions[index].choices.length; i++) {
+    var choiceBtn = document.createElement("button");
+    choiceBtn.className = "btn btn-primary quiz-answer-btn";
+    choiceBtn.textContent = questions[index].choices[i];
+    choiceBtn.questionIndex = index;
+    choiceBtn.onclick = checkAnswer;
+    choicesDiv.appendChild(choiceBtn);
+  }
+}
 
-    };
-};
-
+//Add to local storage
 submitBtn.addEventListener("click", function(event) {
-    event.preventDefault();
+  event.preventDefault();
+  var user = document.getElementById("userInitials").value;
+  var finalScore = document.querySelector("#final-score").innerText;
+  var newScore = {
+    user: user,
+    score: finalScore
+  };
+  var allScores = JSON.parse(localStorage.getItem("allScores"));
+  if (allScores) {
+    allScores.push(newScore);
+  } else {
+    allScores = [newScore];
+  }
+  localStorage.setItem("allScores", JSON.stringify(allScores));
+  window.location = "./highscores.html";
 });
-
-localStorage.setItem('user', JSON.stringify(user));
-console.log('user');

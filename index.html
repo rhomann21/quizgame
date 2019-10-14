@@ -1,51 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type ="text/css" href="./normalize.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="./normalize.css" />
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
     <title>JS Code Game</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- question -->
-    <div class="viewScores"><a href=highscores.html>High Scores</a></div>
+    <div class="viewScores"><a href="highscores.html">High Scores</a></div>
     <div class="timerElement">Time: <span id="time">0</span></div>
-  <div class="wrapper" id="textWrapper">      
-    <div class="startQuiz" id="startScreen">
+    <div class="wrapper" id="textWrapper">
+      <div class="startQuiz" id="startScreen">
         <h1>Coding Quiz Challenge!</h1>
-        <p>Try to answer the following code related questions within the time limit. </p>
-        <p>Keep in mind that incorrect answers will penalize your score/time by 15 seconds!</p>
+        <p>
+          Try to answer the following code related questions within the time
+          limit.
+        </p>
+        <p>
+          Keep in mind that incorrect answers will penalize your score/time by
+          15 seconds!
+        </p>
         <button class="btn btn-primary" id="startBtn">Start Quiz!</button>
- 
-  </div> 
-  <div class="quizBlock" id="quizQuestions"> 
-     <div id="question">replace this with db</div>
+      </div>
+      <div class="quizBlock" id="quizQuestions">
+        <div id="question">replace this with db</div>
 
-   <!-- choices -->
-   <div id="choices">replace with choices</div>
-  </div>
-  </div>
+        <!-- choices -->
+        <div id="choices">replace with choices</div>
+      </div>
+    </div>
 
     <div class="scores" id="highScores">
       <h1>All done!</h1>
-      <h2>Your final score is: </h2>
-        <div id="userscore">
-          <h1><span class="userScore" id="final-score"></span></h1>
-        </div>
-      <input type="text" name="initials" id="userInitials" placeholder="Enter your initials here" />
+      <h2>Your final score is:</h2>
+      <div id="userscore">
+        <h1><span class="userScore" id="final-score"></span></h1>
+      </div>
+      <input
+        type="text"
+        name="initials"
+        id="userInitials"
+        placeholder="Enter your initials here"
+      />
       <button class="btn btn-primary" id="submitBtn">Submit</button>
     </div>
-</body>
+  </body>
 
-<!-- db -->
-<script src="./questions.js"></script>
-<!-- logic -->
-<script src="./app.js"></script>
-
-
-
+  <!-- db -->
+  <script src="./questions.js"></script>
+  <!-- logic -->
+  <script src="./app.js"></script>
 </html>
