@@ -8,6 +8,9 @@ var questionBtn = document.getElementById('questionBtn');
 var quizBlock = document.getElementById('quizQuestions');
 var quizDiv = document.getElementById('textWrapper');
 var scoreDiv = document.getElementById('highScores');
+var submitBtn = document.getElementById('submitBtn');
+var user = document.getElementById("userInitials").value;
+
 
 //questions time choices submit start initials
 //TIMER
@@ -86,18 +89,20 @@ function checkAnswer(event) {
       renderNextQuestion(currentQuestionIndex);
     } else {
       // end quiz
-      var finalScore = secondsLeft;
       clearInterval(timerInterval);
+      var finalScore;
       console.log('finalScore is:', secondsLeft);
       quizDiv.style.display = "none";
       highScores.style.display = "block";
-
-
+      document.querySelector('#final-score').innerText = secondsLeft;
+      
     }
   } else {
     secondsLeft -= 15;
+    
   }
 }
+
 
 /* takes in index, uses this index to return the choices from the db */
 function renderChoices(index) {
@@ -112,3 +117,10 @@ function renderChoices(index) {
 
     };
 };
+
+submitBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+});
+
+localStorage.setItem('user', JSON.stringify(user));
+console.log('user');
